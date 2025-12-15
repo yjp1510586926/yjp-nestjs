@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["client/src/*"],
+      "@components/*": ["client/src/components/*"],
+      "@pages/*": ["client/src/pages/*"],
+      "@hooks/*": ["client/src/hooks/*"],
+      "@stores/*": ["client/src/stores/*"],
+      "@services/*": ["client/src/services/*"],
+      "@utils/*": ["client/src/utils/*"],
+      "@types/*": ["client/src/types/*"]
+    }
+  },
+  "include": ["client/src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

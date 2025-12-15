@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NestJS + React 多页应用">
+  <title><%= title %></title>
+  <% if (typeof cssPath !== 'undefined') { %>
+  <link rel="stylesheet" href="<%= cssPath %>">
+  <% } %>
+</head>
+<body>
+  <div id="root"><%- appHtml %></div>
+  <script>
+    window.__INITIAL_DATA__ = <%- initialData %>;
+  </script>
+  <% if (typeof bundlePath !== 'undefined') { %>
+  <script src="<%= bundlePath %>"></script>
+  <% } %>
+</body>
+</html>

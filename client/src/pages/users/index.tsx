@@ -1,5 +1,5 @@
 import React from 'react';
-import { hydrateRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { UsersPage } from './UsersPage';
 import './styles.css';
 
@@ -7,5 +7,18 @@ import './styles.css';
 const container = document.getElementById('root');
 
 if (container) {
-	hydrateRoot(container, <UsersPage />);
+	console.log('🔍 开始 React hydration...');
+	console.log('📦 Container HTML:', container.innerHTML.substring(0, 200));
+
+	try {
+		const root = hydrateRoot(container, <UsersPage />);
+		console.log('✅ Hydration 成功!', root);
+	} catch (error) {
+		console.error('❌ Hydration 失败，降级到 createRoot:', error);
+		// 清空容器并重新渲染
+		container.innerHTML = '';
+		const root = createRoot(container);
+		root.render(<UsersPage />);
+		console.log('✅ CreateRoot 渲染成功!', root);
+	}
 }

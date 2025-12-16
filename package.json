@@ -10,7 +10,7 @@
     "build:client": "webpack --config client/webpack/webpack.prod.js",
     "build:client:dev": "webpack --config client/webpack/webpack.dev.js",
     "build:client:analyze": "ANALYZE=true webpack --config client/webpack/webpack.prod.js",
-    "build:all": "npm run build:client && npm run build",
+    "build:all": "npm run build && npm run build:client",
     "format": "biome format --write .",
     "start": "nest start",
     "start:dev": "nest start --watch",

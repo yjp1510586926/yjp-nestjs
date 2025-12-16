@@ -38,7 +38,7 @@
     "experimentalDecorators": true,
 
     // React 支持（前端和 SSR）
-    "jsx": "react",
+    "jsx": "react-jsx",
 
     // 其他
     "skipLibCheck": true

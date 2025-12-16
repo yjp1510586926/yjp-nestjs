@@ -7,6 +7,7 @@ const pagesDir = path.resolve(__dirname, "../src/pages");
 const entries = generateEntries(pagesDir);
 
 module.exports = {
+  target: "web", // 明确指定为浏览器环境
   entry: entries,
   output: {
     path: path.resolve(__dirname, "../../dist/client"),

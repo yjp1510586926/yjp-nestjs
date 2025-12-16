@@ -70,3 +70,4 @@ Desktop.ini
 .vercel/
 
 /generated/prisma
+*.tsbuildinfo

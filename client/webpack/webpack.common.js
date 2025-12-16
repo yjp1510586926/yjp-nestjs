@@ -1,10 +1,13 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { generateEntries } = require('./generate-entries');
+
+// 动态生成 entry 配置
+const pagesDir = path.resolve(__dirname, '../src/pages');
+const entries = generateEntries(pagesDir);
 
 module.exports = {
-  entry: {
-    home: './client/src/pages/home/index.tsx',
-  },
+  entry: entries,
   output: {
     path: path.resolve(__dirname, '../../dist/client'),
     filename: '[name].js',

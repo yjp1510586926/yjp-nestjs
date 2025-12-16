@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { UsersPage } from './UsersPage';
 import './styles.css';

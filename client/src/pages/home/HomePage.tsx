@@ -2,9 +2,9 @@ import type React from 'react';
 
 export const HomePage: React.FC = () => {
 	return (
-		<div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen px-4 py-12 bg-gray-100 sm:px-6 lg:px-8">
 			<div className="max-w-3xl mx-auto">
-				<h1 className="text-3xl font-bold text-center text-gray-900 mb-10">
+				<h1 className="mb-10 text-3xl font-bold text-center text-gray-900">
 					项目页面导航
 				</h1>
 
@@ -12,7 +12,7 @@ export const HomePage: React.FC = () => {
 					{/* 用户管理入口 */}
 					<a
 						href="/users/manage"
-						className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-50 transition duration-150 ease-in-out"
+						className="block p-6 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-50"
 					>
 						<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
 							👥 用户管理
@@ -30,7 +30,7 @@ export const HomePage: React.FC = () => {
           */}
 				</div>
 
-				<div className="mt-12 text-center text-sm text-gray-500">
+				<div className="mt-12 text-sm text-center text-gray-500">
 					<p>当前环境: Dev</p>
 					<p>更多页面开发中...</p>
 				</div>

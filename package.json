@@ -30,7 +30,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "type-check": "tsc --noEmit",
     "prepare": "husky",
-    "clean": "rm -rf dist node_modules/.cache"
+    "clean": "rm -rf dist node_modules/.cache",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

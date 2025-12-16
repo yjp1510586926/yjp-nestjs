@@ -1,3 +1,7 @@
+// 立即执行的调试代码 - 验证脚本是否被执行
+console.log('🚀 users/index.tsx 文件开始执行！');
+(window as any).__USERS_SCRIPT_LOADED__ = true;
+
 import React from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { UsersPage } from './UsersPage';

@@ -30,6 +30,7 @@ export class UsersController {
 		return {
 			title: '用户管理',
 			appHtml,
+			vendorsPath: '/static/vendors.js', // Webpack splitChunks 生成的公共依赖
 			bundlePath: '/static/users.js',
 			cssPath: '/static/users.css',
 		};

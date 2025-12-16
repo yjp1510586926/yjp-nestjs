@@ -18,6 +18,7 @@ export class AppController {
 			title: 'YJP 管理平台',
 			initialData: JSON.stringify({}),
 			appHtml,
+			vendorsPath: '/static/vendors.js',
 			bundlePath: '/static/home.js',
 			cssPath: '/static/home.css',
 		};

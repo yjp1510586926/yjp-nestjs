@@ -1,9 +1,10 @@
 import {
+	Inject,
 	Injectable,
 	type OnModuleDestroy,
 	type OnModuleInit,
 } from '@nestjs/common';
-import type { ConfigService } from '@nestjs/config';
+import { ConfigService } from '@nestjs/config';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '@prisma/client';
 import { Pool } from 'pg';
@@ -13,7 +14,7 @@ export class PrismaService implements OnModuleInit, OnModuleDestroy {
 	private prisma: PrismaClient;
 	private pool: Pool;
 
-	constructor(private configService: ConfigService) {
+	constructor(@Inject(ConfigService) private configService: ConfigService) {
 		const databaseUrl = this.configService.get<string>('DATABASE_URL');
 
 		// 创建 PostgreSQL 连接池

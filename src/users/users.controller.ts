@@ -3,21 +3,22 @@ import {
 	Controller,
 	Delete,
 	Get,
+	Inject,
 	Param,
 	Patch,
 	Post,
 	Render,
 } from '@nestjs/common';
-import type { RenderService } from '../common/render.service';
+import { RenderService } from '../common/render.service';
 import type { CreateUserDto } from './dto/create-user.dto';
 import type { UpdateUserDto } from './dto/update-user.dto';
-import type { UsersService } from './users.service';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
 	constructor(
-		private readonly usersService: UsersService,
-		private readonly renderService: RenderService,
+		@Inject(UsersService) private readonly usersService: UsersService,
+		@Inject(RenderService) private readonly renderService: RenderService,
 	) {}
 
 	// 渲染用户管理页面 (React SSR)

@@ -12,6 +12,8 @@ module.exports = {
     path: path.resolve(__dirname, "../../dist/client"),
     filename: "[name].js",
     publicPath: "/static/",
+    // 确保打包后的代码立即执行（IIFE 格式）
+    iife: true,
   },
   module: {
     rules: [

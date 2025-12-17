@@ -1,0 +1,67 @@
+# SAM 构建时忽略的文件 - 精简版
+
+# 源代码的前端目录（但不忽略 dist/client/）
+/client/
+
+# 完整的 node_modules (Layer 中已有)
+node_modules/
+
+# 文档
+docs/
+*.md
+!README.md
+
+# 测试
+test/
+**/*.spec.ts
+**/*.test.ts
+coverage/
+
+# 配置
+.git/
+.github/
+.husky/
+.vscode/
+.idea/
+.env
+.env.*
+env.json
+
+# 日志
+logs/
+*.log
+
+# 临时文件
+.DS_Store
+*.swp
+.cache/
+.aws-sam/
+.lambda-build/
+dist-lambda/
+layer-minimal/
+
+# 视图模板
+views/
+
+# Webpack 和前端工具
+webpack.config.js
+tailwind.config.js
+postcss.config.js
+
+# 脚本
+scripts/
+*.sh
+!lambda-build-minimal.sh
+
+# 其他配置
+samconfig.toml
+template-production.yaml
+events/
+
+# 原始 package.json (使用精简版)
+package.json
+package-lock.json
+
+# Prisma (会从 dist-lambda 复制)
+prisma/
+prisma.config.ts

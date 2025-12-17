@@ -1,4 +1,5 @@
 // 移除顶部的 ignore，因为它没用
+import 'reflect-metadata';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
@@ -8,6 +9,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
 	const app = await NestFactory.create<NestExpressApplication>(AppModule);
+	// app.setGlobalPrefix("api"); // 撤销，让根路径服务页面
 
 	// 配置视图引擎
 	app.setBaseViewsDir(join(__dirname, '..', 'views'));
@@ -18,11 +20,32 @@ async function bootstrap() {
 		prefix: '/static/',
 	});
 
+	// ⭐ History API Fallback - 支持 SPA 前端路由
+	// 所有非 API、非静态资源的请求都重定向到根路由，让前端路由处理
+	app.use((req: any, res: any, next: any) => {
+		// 如果是 API 请求，跳过
+		if (req.path.startsWith('/api')) {
+			return next();
+		}
+		// 如果是静态资源，跳过
+		if (req.path.startsWith('/static')) {
+			return next();
+		}
+		// 如果是健康检查，跳过
+		if (req.path === '/health') {
+			return next();
+		}
+		// 如果不是文件请求（没有扩展名），重定向到根路由
+		if (!req.path.includes('.')) {
+			req.url = '/';
+		}
+		next();
+	});
+
 	// 全局验证管道
 	app.useGlobalPipes(
 		new ValidationPipe({
-			whitelist: true,
-			forbidNonWhitelisted: true,
+			whitelist: false,
 			transform: true,
 		}),
 	);

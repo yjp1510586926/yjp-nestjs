@@ -1,5 +1,7 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getApiUrl } from '../../config/api';
 
 interface User {
 	id: string;
@@ -34,7 +36,7 @@ export const UsersPage: React.FC = () => {
 	// 加载用户列表
 	const loadUsers = async () => {
 		try {
-			const response = await fetch('/users/api');
+			const response = await fetch(getApiUrl('/api/users'));
 			if (!response.ok) throw new Error('加载失败');
 			const data = await response.json();
 			setUsers(data);
@@ -100,7 +102,9 @@ export const UsersPage: React.FC = () => {
 		}
 
 		try {
-			const url = editingUser ? `/users/api/${editingUser.id}` : '/users/api';
+			const url = editingUser
+				? getApiUrl(`/api/users/${editingUser.id}`)
+				: getApiUrl('/api/users');
 			const method = editingUser ? 'PATCH' : 'POST';
 
 			const response = await fetch(url, {
@@ -129,7 +133,7 @@ export const UsersPage: React.FC = () => {
 		}
 
 		try {
-			const response = await fetch(`/users/api/${id}`, {
+			const response = await fetch(getApiUrl(`/api/users/${id}`), {
 				method: 'DELETE',
 			});
 
@@ -150,6 +154,15 @@ export const UsersPage: React.FC = () => {
 			<div className="container px-4 py-8 mx-auto max-w-7xl">
 				{/* Header */}
 				<div className="p-8 mb-8 text-center shadow-2xl bg-white/95 backdrop-blur-sm rounded-3xl">
+					<div className="flex items-center justify-between mb-4">
+						<Link
+							to="/"
+							className="px-4 py-2 text-sm font-medium text-purple-600 transition-all duration-200 border-2 border-purple-600 rounded-lg hover:bg-purple-600 hover:text-white"
+						>
+							← 返回首页
+						</Link>
+						<div className="flex-1" />
+					</div>
 					<h1 className="mb-3 text-4xl font-bold text-transparent md:text-5xl bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text">
 						🎯 用户管理
 					</h1>

@@ -1,26 +1,21 @@
 import { Controller, Get, Inject, Render } from '@nestjs/common';
 import { AppService } from './app.service';
-import { RenderService } from './common/render.service';
 
 @Controller()
 export class AppController {
-	constructor(
-		@Inject(AppService) _appService: AppService,
-		@Inject(RenderService) private readonly renderService: RenderService,
-	) {}
+	constructor(@Inject(AppService) _appService: AppService) {}
 
-	@Get()
-	@Render('pages/home')
-	getHome() {
-		const appHtml = this.renderService.renderHomePage({});
-
+	@Get('/') // SPA 入口路由
+	@Render('index')
+	renderApp() {
+		const urlPrefix = process.env.URL_PREFIX || '';
 		return {
-			title: 'YJP 管理平台',
-			initialData: JSON.stringify({}),
-			appHtml,
-			vendorsPath: '/static/vendors.js',
-			bundlePath: '/static/home.js',
-			cssPath: '/static/home.css',
+			title: 'YJP 用户管理系统',
+			initialData: JSON.stringify({ message: 'Hello from NestJS!' }),
+			appHtml: '', // SSR 内容（如果没有 SSR 则为空）
+			cssPath: `${urlPrefix}/static/main.css`,
+			vendorsPath: `${urlPrefix}/static/vendors.js`,
+			bundlePath: `${urlPrefix}/static/main.js`,
 		};
 	}
 

@@ -1,14 +1,12 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { generateEntries } = require("./generate-entries");
 
-// 动态生成 entry 配置
-const pagesDir = path.resolve(__dirname, "../src/pages");
-const entries = generateEntries(pagesDir);
-
+// SPA 单一入口配置
 module.exports = {
   target: "web", // 明确指定为浏览器环境
-  entry: entries,
+  entry: {
+    main: path.resolve(__dirname, "../src/index.tsx"),
+  },
   output: {
     path: path.resolve(__dirname, "../../dist/client"),
     filename: "[name].js",

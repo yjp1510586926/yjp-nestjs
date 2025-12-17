@@ -1,4 +1,5 @@
 import type React from 'react';
+import { Link } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
 	return (
@@ -10,8 +11,8 @@ export const HomePage: React.FC = () => {
 
 				<div className="grid gap-6 sm:grid-cols-2">
 					{/* 用户管理入口 */}
-					<a
-						href="/users/manage"
+					<Link
+						to="/users/manage"
 						className="block p-6 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-50"
 					>
 						<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -20,7 +21,7 @@ export const HomePage: React.FC = () => {
 						<p className="font-normal text-gray-700">
 							进入用户管理系统，进行用户的增删改查操作。
 						</p>
-					</a>
+					</Link>
 
 					{/* 这里可以添加更多页面的入口 */}
 					{/* 

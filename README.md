@@ -17,6 +17,7 @@
 ## 🛠️ 技术栈
 
 ### 后端
+
 - **框架**: NestJS 10.x
 - **语言**: TypeScript 5.x
 - **模板引擎**: EJS
@@ -25,6 +26,7 @@
 - **配置**: @nestjs/config
 
 ### 前端
+
 - **框架**: React 18.x
 - **语言**: TypeScript 5.x
 - **样式**: TailwindCSS 3.x
@@ -33,6 +35,7 @@
 - **渲染**: SSR + Client Hydration
 
 ### 开发工具
+
 - **包管理**: pnpm (推荐)
 - **代码规范**: ESLint + Prettier
 - **类型检查**: TypeScript
@@ -57,6 +60,7 @@ cd yjp-nestjs
 ```
 
 脚本会自动：
+
 - ✅ 安装依赖
 - ✅ 创建 .env 文件
 - ✅ 构建前端和后端
@@ -72,7 +76,7 @@ pnpm install
 cp .env.example .env
 
 # 3. 构建前端
-pnpm run build:client:dev
+pnpm run build:client
 
 # 4. 启动开发服务器
 pnpm run start:dev
@@ -91,6 +95,7 @@ pnpm run start:dev
 ```
 
 修改代码后：
+
 1. 等待 2-3 秒（自动编译）
 2. 刷新浏览器（Cmd+R）
 3. 看到更新 ✅
@@ -156,17 +161,14 @@ yjp-nestjs/
 ## 🏗️ 构建
 
 ```bash
-# 构建前端（开发版）
-pnpm run build:client:dev
-
-# 构建前端（生产版）
+# 构建前端
 pnpm run build:client
 
 # 构建后端
 pnpm run build
 
 # 构建全部
-pnpm run build:all
+pnpm run build:app
 ```
 
 ## 🚀 部署
@@ -175,7 +177,7 @@ pnpm run build:all
 
 ```bash
 # 1. 构建项目
-pnpm run build:all
+pnpm run build:app
 
 # 2. 启动生产服务器
 pnpm run start:prod
@@ -207,7 +209,7 @@ docker run -d -p 3000:3000 nestjs-mpa
 docker-compose up -d
 ```
 
-##  常用命令
+## 常用命令
 
 ```bash
 # 开发
@@ -216,13 +218,11 @@ pnpm run watch:client       # 监听前端文件变化
 
 # 构建
 pnpm run build              # 构建后端
-pnpm run build:client       # 构建前端（生产）
-pnpm run build:client:dev   # 构建前端（开发）
-pnpm run build:all          # 构建全部
+pnpm run build:client       # 构建前端
+pnpm run build:app          # 构建全部
 
 # 代码质量
 pnpm run lint               # 代码检查
-pnpm run format             # 代码格式化
 pnpm run type-check         # 类型检查
 
 # 生产
@@ -260,11 +260,13 @@ pnpm run start:prod         # 启动生产服务器
 ## 📝 添加新页面
 
 1. **创建 EJS 模板**
+
 ```bash
 touch src/views/pages/about.ejs
 ```
 
 2. **创建 React 组件**
+
 ```bash
 mkdir -p client/src/pages/about
 touch client/src/pages/about/AboutPage.tsx
@@ -272,6 +274,7 @@ touch client/src/pages/about/index.tsx
 ```
 
 3. **添加 Webpack 入口**
+
 ```javascript
 // client/webpack/webpack.common.js
 entry: {
@@ -281,6 +284,7 @@ entry: {
 ```
 
 4. **添加路由**
+
 ```typescript
 // src/app.controller.ts
 @Get('about')

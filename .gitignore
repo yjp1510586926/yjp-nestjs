@@ -49,6 +49,8 @@ public/uploads/
 .webpack/
 .next/
 out/
+layer/
+
 
 # 数据库
 *.sqlite
@@ -71,3 +73,14 @@ Desktop.ini
 
 /generated/prisma
 *.tsbuildinfo
+
+# AWS SAM
+.aws-sam/
+samconfig.toml
+env.json
+layer-minimal/
+dist-lambda/
+.lambda-build/
+build.log
+deploy.log
+package-lambda.json

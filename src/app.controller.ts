@@ -16,6 +16,7 @@ export class AppController {
 			cssPath: `${urlPrefix}/static/main.css`,
 			vendorsPath: `${urlPrefix}/static/vendors.js`,
 			bundlePath: `${urlPrefix}/static/main.js`,
+			faviconPath: `${urlPrefix}/static/favicon.png`,
 		};
 	}
 

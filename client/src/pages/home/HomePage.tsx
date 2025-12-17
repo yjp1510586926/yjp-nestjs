@@ -23,12 +23,18 @@ export const HomePage: React.FC = () => {
 						</p>
 					</Link>
 
-					{/* 这里可以添加更多页面的入口 */}
-					{/* 
-          <a href="/other/page" ...>
-             ...
-          </a> 
-          */}
+					{/* GitHub 用户获取入口 */}
+					<Link
+						to="/github"
+						className="block p-6 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-50"
+					>
+						<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+							🐱 GitHub 用户
+						</h5>
+						<p className="font-normal text-gray-700">
+							输入 GitHub Token 获取并展示用户信息。
+						</p>
+					</Link>
 				</div>
 
 				<div className="mt-12 text-sm text-center text-gray-500">

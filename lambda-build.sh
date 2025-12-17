@@ -30,6 +30,8 @@ fi
 if [ -d "client" ]; then
   echo "🎨 构建前端资源..."
   npm run build:client
+  # 手动复制 public 资源到 dist/client (因为没有配置 webpack CopyPlugin)
+  cp -r client/public/* dist/client/ 2>/dev/null || true
 fi
 
 # === 新策略：将 Prisma 放到 dist 而不是 layer ===

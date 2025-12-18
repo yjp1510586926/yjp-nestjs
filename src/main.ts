@@ -71,8 +71,15 @@ async function bootstrap() {
 	const port = process.env.PORT || 3000;
 	await app.listen(port);
 
+	// 优雅关闭处理
+	app.enableShutdownHooks();
+
 	console.log(`🚀 Application is running on: http://localhost:${port}`);
 	console.log(`📚 API Documentation: http://localhost:${port}/api/docs`);
+	console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
+	if (process.env.VPC_SUBNETS) {
+		console.log(`🔒 VPC Deployment: ${process.env.VPC_SUBNETS}`);
+	}
 }
 
 bootstrap();

@@ -102,6 +102,7 @@ npm run start:dev
 ```
 
 这个命令会自动并行运行：
+
 - **前端监听** (`client:watch`): 自动编译 React 代码
 - **后端监听** (`nest:watch`): 自动重启 NestJS 服务
 
@@ -363,13 +364,13 @@ npx nest g service features
 
 ```typescript
 // src/features/features.controller.ts
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get } from "@nestjs/common";
 
-@Controller('api/features')
+@Controller("api/features")
 export class FeaturesController {
   @Get()
   findAll() {
-    return { features: ['Feature 1', 'Feature 2'] };
+    return { features: ["Feature 1", "Feature 2"] };
   }
 }
 ```
@@ -378,7 +379,7 @@ export class FeaturesController {
 
 ```typescript
 // 前端页面中
-const response = await fetch('/api/features');
+const response = await fetch("/api/features");
 const data = await response.json();
 ```
 

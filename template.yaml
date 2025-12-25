@@ -11,27 +11,27 @@ Parameters:
   # VPC配置参数 - 1个公有子网 + 3个私有子网
   SecurityGroupId:
     Type: String
-    Default: "sg-0f80dcde1e5a3dbbc"
+    Default: "sg-0f032d65dcd3fda4b"
     Description: VPC安全组ID (ec2-rds-1 - 用于连接RDS)
 
   PublicSubnetId:
     Type: String
-    Default: "subnet-0e5c8131a811adc95"
+    Default: "subnet-060e34178639924f6"
     Description: 公有子网 ID (us-west-2a, 172.31.32.0/20) - 用于访问外网
 
   PrivateSubnet1Id:
     Type: String
-    Default: "subnet-0782da7395e112a97"
+    Default: "subnet-07c8fd31488a05381"
     Description: 私有子网1 ID (us-west-2a, 172.31.64.0/20) - Lambda部署
 
   PrivateSubnet2Id:
     Type: String
-    Default: "subnet-03da04142d46ba4f6"
+    Default: "subnet-08dd59db3b7dc1aee"
     Description: 私有子网2 ID (us-west-2b, 172.31.80.0/20) - Lambda部署
 
   PrivateSubnet3Id:
     Type: String
-    Default: "subnet-081e618ba9e6219bd"
+    Default: "subnet-0673ce7d1d2e18113"
     Description: 私有子网3 ID (us-west-2c, 172.31.96.0/20) - Lambda部署
 
   EnableVPC:

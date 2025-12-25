@@ -13,28 +13,28 @@ NC='\033[0m' # No Color
 echo -e "${GREEN}🚀 开始 Lambda 部署...${NC}"
 echo ""
 
-# 询问数据库URL
-echo -e "${BLUE}数据库配置:${NC}"
-read -p "请输入数据库URL (留空使用默认): " DATABASE_URL
-echo ""
+# # 询问数据库URL
+# echo -e "${BLUE}数据库配置:${NC}"
+# read -p "请输入数据库URL (留空使用默认): " DATABASE_URL
+# echo ""
 
-# 显示部署配置
-echo -e "${YELLOW}部署配置:${NC}"
-echo "Stack Name: yjp-nestjs-stack"
-echo "Region: us-west-2"
-echo "VPC架构: 1个公有子网 + 3个私有子网"
-echo "Security Group: sg-0f80dcde1e5a3dbbc (ec2-rds-1)"
-echo ""
-echo "公有子网 (直接访问外网):"
-echo "  - subnet-0e5c8131a811adc95 (us-west-2a, 172.31.32.0/20)"
-echo ""
-echo "私有子网 (Lambda部署,通过NAT访问外网):"
-echo "  - subnet-0782da7395e112a97 (us-west-2a, 172.31.64.0/20)"
-echo "  - subnet-03da04142d46ba4f6 (us-west-2b, 172.31.80.0/20)"
-echo "  - subnet-081e618ba9e6219bd (us-west-2c, 172.31.96.0/20)"
-echo ""
-echo "Database URL: ${DATABASE_URL:-<使用默认>}"
-echo ""
+# # 显示部署配置
+# echo -e "${YELLOW}部署配置:${NC}"
+# echo "Stack Name: yjp-nestjs-stack"
+# echo "Region: us-west-2"
+# echo "VPC架构: 1个公有子网 + 3个私有子网"
+# echo "Security Group: sg-0f80dcde1e5a3dbbc (ec2-rds-1)"
+# echo ""
+# echo "公有子网 (直接访问外网):"
+# echo "  - subnet-0e5c8131a811adc95 (us-west-2a, 172.31.32.0/20)"
+# echo ""
+# echo "私有子网 (Lambda部署,通过NAT访问外网):"
+# echo "  - subnet-0782da7395e112a97 (us-west-2a, 172.31.64.0/20)"
+# echo "  - subnet-03da04142d46ba4f6 (us-west-2b, 172.31.80.0/20)"
+# echo "  - subnet-081e618ba9e6219bd (us-west-2c, 172.31.96.0/20)"
+# echo ""
+# echo "Database URL: ${DATABASE_URL:-<使用默认>}"
+# echo ""
 
 # 1. 构建
 echo -e "${GREEN}🔨 步骤 1/2: 构建...${NC}"
@@ -45,9 +45,9 @@ echo -e "${GREEN}🚢 步骤 2/2: 部署到 AWS...${NC}"
 
 # 准备参数
 PARAMS="EnableVPC=true"
-PARAMS="$PARAMS PrivateSubnet1Id=subnet-0782da7395e112a97"
-PARAMS="$PARAMS PrivateSubnet2Id=subnet-03da04142d46ba4f6"
-PARAMS="$PARAMS PrivateSubnet3Id=subnet-081e618ba9e6219bd"
+PARAMS="$PARAMS PrivateSubnet1Id=subnet-07c8fd31488a05381"
+PARAMS="$PARAMS PrivateSubnet2Id=subnet-08dd59db3b7dc1aee"
+PARAMS="$PARAMS PrivateSubnet3Id=subnet-0673ce7d1d2e18113"
 if [ -n "$DATABASE_URL" ]; then
     PARAMS="$PARAMS DatabaseUrl=$DATABASE_URL"
 fi
